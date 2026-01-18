@@ -1,3 +1,4 @@
+
 import Product from "../models/product.model";
 
 export const getAll = async (req, res) => {
@@ -28,6 +29,7 @@ export const getOne = async (req, res) => {
 
 export const createOne = async (req, res) => {
     try {
+        
         const product = await Product.create(req.body);
         return res.status(201).json(product);
     } catch (error) {
@@ -53,6 +55,7 @@ export const deleteOne = async (req, res) => {
 
 export const updateOne = async (req, res) => {
     try {
+      
         const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
         return res.json(product);
